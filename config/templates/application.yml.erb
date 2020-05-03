@@ -1,0 +1,13 @@
+defaults: &defaults
+  TIMEZONE: 'Paris'
+  DATABASE_USERNAME: ~
+  DATABASE_PASSWORD: ~
+  DATABASE_HOST: localhost
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
