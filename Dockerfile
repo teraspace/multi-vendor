@@ -43,10 +43,9 @@ RUN yarn install --check-files
 
 # Expose port 8080 to the Docker host, so we can access it
 # from the outside.
-EXPOSE 8080
+EXPOSE 8000
 
 # The main command to run when the container starts. Also
 # tell the Rails dev server to bind to all interfaces by
 # default.
-#CMD ["bundle", "exec", "puma", "--config", "config/puma.rb"]
-ENTRYPOINT ["sh", "./entrypoint.sh"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8000"]
