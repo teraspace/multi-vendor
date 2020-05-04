@@ -8,7 +8,7 @@
     * docker-compose exec web bundle exec rake spree_sample:load 
     * docker-compose exec web bundle exec rails g spree:frontend:copy_storefront
     * docker-compose exec web bundle exec rake spree_multi_vendor:sample:create
-    
+    * Visit http://localhost:8000/
 
 # Deploy on development server
 * **Prerequisites**:
