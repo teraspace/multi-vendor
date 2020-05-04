@@ -1,17 +1,14 @@
 # Setup on local with Docker
+    * Clone the project repository
     * cd inside_project_folder/
     * docker-compose up --build -d
-    * docker-compose exec my_store bundle exec rails db:migrate
-    * docker-compose exec my_store bundle exec rails db:seed
-    * docker-compose exec my_store bundle exec rake spree_sample:load 
-    * docker-compose exec my_store bundle exec rails g spree:frontend:copy_storefront
-    * docker-compose exec my_store bundle exec rake spree_multi_vendor:sample:create
-
-####Note:
-    For migration please run this command:
+    * docker-compose exec web bundle exec rails db:create
     * docker-compose exec web bundle exec rails db:migrate
-    To build service use:
-    * docker-compose up --build -d web
+    * docker-compose exec web bundle exec rails db:seed
+    * docker-compose exec web bundle exec rake spree_sample:load 
+    * docker-compose exec web bundle exec rails g spree:frontend:copy_storefront
+    * docker-compose exec web bundle exec rake spree_multi_vendor:sample:create
+    
 
 # Deploy on development server
 * **Prerequisites**:
