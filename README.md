@@ -1,7 +1,9 @@
 # Setup on local with Docker
+    * The project runs at port 8000, so please make sure that nothing else is running on port 8000
     * Clone the project repository
     * cd inside_project_folder/
-    * docker-compose up --build -d
+    * docker-compose up --build
+    * Open another terminal and run the following commands in the same project directory.
     * docker-compose exec web bundle exec rails db:create
     * docker-compose exec web bundle exec rails db:migrate
     * docker-compose exec web bundle exec rails db:seed
