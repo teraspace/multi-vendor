@@ -8,10 +8,10 @@ services:
       - "5432"
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_DB: my_store_development
+      POSTGRES_DB: spree-multi-vendor
   web:
     build: .
-    command: bundle exec rails s -p 8000 -b '0.0.0.0'
+    command: /bin/sh -c "rm -f /home/app/tmp/pids/server.pid && bundle exec rails s -p 8000 -b '0.0.0.0'"
     volumes:
       - .:/home/app
     ports:
