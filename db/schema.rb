@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_223235) do
+ActiveRecord::Schema.define(version: 2020_05_06_223328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,13 @@ ActiveRecord::Schema.define(version: 2020_05_06_223235) do
     t.index ["eligible"], name: "index_spree_adjustments_on_eligible"
     t.index ["order_id"], name: "index_spree_adjustments_on_order_id"
     t.index ["source_id", "source_type"], name: "index_spree_adjustments_on_source_id_and_source_type"
+  end
+
+  create_table "spree_assemblies_parts", id: :serial, force: :cascade do |t|
+    t.integer "assembly_id", null: false
+    t.integer "part_id", null: false
+    t.integer "count", default: 1, null: false
+    t.boolean "variant_selection_deferred"
   end
 
   create_table "spree_assets", id: :serial, force: :cascade do |t|
@@ -435,6 +442,12 @@ ActiveRecord::Schema.define(version: 2020_05_06_223235) do
     t.index ["store_id"], name: "index_spree_pages_stores_on_store_id"
   end
 
+  create_table "spree_part_line_items", id: :serial, force: :cascade do |t|
+    t.integer "line_item_id", null: false
+    t.integer "variant_id", null: false
+    t.integer "quantity", default: 1
+  end
+
   create_table "spree_payment_capture_events", id: :serial, force: :cascade do |t|
     t.decimal "amount", precision: 10, scale: 2, default: "0.0"
     t.integer "payment_id"
@@ -546,6 +559,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_223235) do
     t.string "meta_title"
     t.datetime "discontinue_on"
     t.integer "vendor_id"
+    t.boolean "can_be_part", default: false, null: false
+    t.boolean "individual_sale", default: true, null: false
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on"

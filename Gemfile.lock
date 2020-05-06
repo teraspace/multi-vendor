@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/spree-contrib/spree-product-assembly.git
+  revision: 2036f581d40dc742d4ca972fce6d2e393774b455
+  specs:
+    spree_product_assembly (4.1.0)
+      deface (~> 1.0)
+      spree_backend (>= 3.1.0, < 5.0)
+      spree_extension
+
+GIT
   remote: https://github.com/spree-contrib/spree_multi_vendor.git
   revision: a4d83ca9b371e29105fe9c2e8da2244bf889fff0
   specs:
@@ -443,6 +452,7 @@ DEPENDENCIES
   spree_auth_devise (~> 4.1)
   spree_gateway (~> 3.7)
   spree_multi_vendor!
+  spree_product_assembly!
   spree_related_products!
   spree_static_content!
   spring
