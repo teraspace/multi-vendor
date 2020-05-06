@@ -11,3 +11,4 @@
 
 //= require_tree .
 //= require spree/frontend/spree_product_assembly
+//= require spree/frontend/spree_multi_currency
