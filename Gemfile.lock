@@ -1,17 +1,18 @@
 GIT
+  remote: https://github.com/spark-solutions/spree_multi_currency.git
+  revision: 2c410f1c5f035c47c4d2fe8e3931e9e84b02671f
+  branch: feature/spree-4-1
+  specs:
+    spree_multi_currency (3.4.0)
+      deface (~> 1.0)
+      spree_backend (>= 3.7.0, < 5.0)
+      spree_extension
+
+GIT
   remote: https://github.com/spree-contrib/spree-product-assembly.git
   revision: 2036f581d40dc742d4ca972fce6d2e393774b455
   specs:
     spree_product_assembly (4.1.0)
-      deface (~> 1.0)
-      spree_backend (>= 3.1.0, < 5.0)
-      spree_extension
-
-GIT
-  remote: https://github.com/spree-contrib/spree_multi_currency.git
-  revision: d3fc10e1da81dd5b66cfb149b34284bfcf4a4d3c
-  specs:
-    spree_multi_currency (3.4.0)
       deface (~> 1.0)
       spree_backend (>= 3.1.0, < 5.0)
       spree_extension
@@ -190,6 +191,7 @@ GEM
       thor (~> 0.14)
     friendly_id (5.3.0)
       activerecord (>= 4.0.0)
+    geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     glyphicons (1.0.2)
@@ -505,6 +507,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   figaro (~> 1.1, >= 1.1.1)
+  geocoder
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
