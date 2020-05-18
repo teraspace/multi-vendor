@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   mount Spree::Core::Engine, at: '/'
 
   Spree::Core::Engine.add_routes do
-    resources :vendors, only: :show
+    resources :vendors, only: [:index, :show]
+
+    post '/session_location', to: 'users#session_location'
   end
 end
