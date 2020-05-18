@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_223436) do
+ActiveRecord::Schema.define(version: 2020_05_18_004347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1236,7 +1236,11 @@ ActiveRecord::Schema.define(version: 2020_05_06_223436) do
     t.float "commission_rate", default: 5.0
     t.integer "priority"
     t.string "notification_email"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
+    t.string "address"
     t.index ["deleted_at"], name: "index_spree_vendors_on_deleted_at"
+    t.index ["lat", "lng"], name: "index_spree_vendors_on_lat_and_lng"
     t.index ["name"], name: "index_spree_vendors_on_name", unique: true
     t.index ["slug"], name: "index_spree_vendors_on_slug", unique: true
     t.index ["state"], name: "index_spree_vendors_on_state"
