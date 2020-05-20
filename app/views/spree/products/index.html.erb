@@ -14,18 +14,6 @@
           <%= "#{@products.total_count} #{Spree.t('plp.results_for')} '#{params[:keywords].upcase}'" %>
         </div>
       </div>
-    <% elsif not @taxon %>
-      <div id="no-taxon-banner">
-        <div class="container">
-          <%= lazy_image(
-            src: asset_path('homepage/products.jpg'),
-            alt: 'products-banner',
-            width: 1110,
-            height: 300,
-            class: 'w-100 d-none d-md-block'
-          ) %>
-        </div>
-      </div>
     <% end %>
 
     <%= render 'spree/products/filter_and_sort_mobile_buttons' %>

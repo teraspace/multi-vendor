@@ -50,6 +50,7 @@ group :test do
   gem 'webdrivers'
 end
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'geocoder'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -57,3 +58,10 @@ gem 'spree', '~> 4.1'
 gem 'spree_auth_devise', '~> 4.1'
 gem 'spree_gateway', '~> 3.7'
 gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
+gem 'spree_analytics_trackers', '~> 1.1'
+gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
+gem 'spree_product_assembly', github: 'spree-contrib/spree-product-assembly'
+gem 'spree_social', github: 'spree-contrib/spree_social'
+gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', branch: 'feature/spree-4-1'
+# gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
