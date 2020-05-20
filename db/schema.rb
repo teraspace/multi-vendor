@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_004347) do
+ActiveRecord::Schema.define(version: 2020_05_20_021615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -966,9 +966,12 @@ ActiveRecord::Schema.define(version: 2020_05_18_004347) do
     t.boolean "propagate_all_variants", default: true
     t.string "admin_name"
     t.integer "vendor_id"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
     t.index ["active"], name: "index_spree_stock_locations_on_active"
     t.index ["backorderable_default"], name: "index_spree_stock_locations_on_backorderable_default"
     t.index ["country_id"], name: "index_spree_stock_locations_on_country_id"
+    t.index ["lat", "lng"], name: "index_spree_stock_locations_on_lat_and_lng"
     t.index ["propagate_all_variants"], name: "index_spree_stock_locations_on_propagate_all_variants"
     t.index ["state_id"], name: "index_spree_stock_locations_on_state_id"
     t.index ["vendor_id"], name: "index_spree_stock_locations_on_vendor_id"
@@ -1064,6 +1067,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_004347) do
     t.string "facebook"
     t.string "twitter"
     t.string "instagram"
+    t.string "primary_color"
+    t.string "secondary_color"
     t.index "lower((code)::text)", name: "index_spree_stores_on_lower_code", unique: true
     t.index ["default"], name: "index_spree_stores_on_default"
     t.index ["url"], name: "index_spree_stores_on_url"
