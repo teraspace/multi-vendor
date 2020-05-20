@@ -19,7 +19,7 @@
                       tax: rate.display_tax_amount
                     } %>
                   <span class="spree-radio-label-custom-input"></span>
-                  <span class="rate-name"><%= rate.name %></span>
+                  <span class="rate-name"><%= rate.name %> <%= rate.shipment.stock_location.name %></span>
                   <p class="rate-cost"><%= rate.display_cost %></p>
                 </label>
               </li>
