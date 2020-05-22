@@ -14,7 +14,8 @@ Spree.config do |config|
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
 end
-
+#This global var will be captured by DunaBaseTheme and will setup compact mode for 'Chilis'
+@@header_layout='compact' 
 # Configure Spree Dependencies
 #
 # Note: If a dependency is set here it will NOT be stored within the cache & database upon initialization.
