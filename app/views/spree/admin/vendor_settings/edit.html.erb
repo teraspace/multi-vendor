@@ -21,7 +21,6 @@
         <%= f.field_container :image do %>
           <%= f.label :image %>
           <%= f.file_field :image %>
-          <%= image_tag main_app.url_for(@vendor.image.url(:small)) if @vendor.image %>
         <% end %>
       </div>
     <% end %>
@@ -47,6 +46,13 @@
       <%= f.field_container :notification_email do %>
         <%= f.label :notification_email %>
         <%= f.email_field :notification_email, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :delivery_distance do %>
+        <%= f.label :delivery_distance %>
+        <%= f.number_field :delivery_distance, class: 'form-control' %>
+        <small class="form-text"><%= Spree.t(:delivery_distance_explain) %></small>
       <% end %>
     </div>
     <div class="form-actions" data-hook="buttons">

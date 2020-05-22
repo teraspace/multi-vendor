@@ -29,3 +29,6 @@ end
 
 
 Spree.user_class = "Spree::User"
+
+# Custom attributes
+Spree::PermittedAttributes.user_attributes << [:stock_location_id]
