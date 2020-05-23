@@ -4,6 +4,10 @@ module Spree::StockLocationDecorator
     base.after_validation :geocode, if: ->(obj) { obj.full_address.present? }
   end
 
+  def google_location
+    "http://www.google.com/maps/place/#{lat},#{lng}" if lat && lng
+  end
+
   def full_address
     [
       address1,
