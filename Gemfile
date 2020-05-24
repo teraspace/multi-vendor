@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use pg as the database for Active Record
 gem 'sqlite3', '~> 1.4'
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -67,4 +68,5 @@ gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', bran
 # gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 gem 'spree-duna-payment', git: 'git@github.com:DUNA-E-Commmerce/spree-duna-payment.git'
 gem "spree_duna_base_theme", path: "../spree_duna_base_theme"
-gem "spree_duna_chili_sample", path: "../spree_duna_chili_sample"
+#gem "spree_duna_chili_sample", path: "../spree_duna_chili_sample"
+gem "spree_duna_base_theme", git: 'git@github.com:DUNA-E-Commmerce/spree_duna_base_theme.git', branch: 'chilis'
