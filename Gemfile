@@ -67,6 +67,6 @@ gem 'spree_social', github: 'spree-contrib/spree_social'
 gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', branch: 'feature/spree-4-1'
 # gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 gem 'spree-duna-payment', git: 'git@github.com:DUNA-E-Commmerce/spree-duna-payment.git'
-gem "spree_duna_base_theme", path: "../spree_duna_base_theme"
+#gem "spree_duna_base_theme", path: "../spree_duna_base_theme"
 #gem "spree_duna_chili_sample", path: "../spree_duna_chili_sample"
 gem "spree_duna_base_theme", git: 'git@github.com:DUNA-E-Commmerce/spree_duna_base_theme.git', branch: 'chilis'
