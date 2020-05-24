@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_021615) do
+ActiveRecord::Schema.define(version: 2020_05_22_042932) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -1219,6 +1219,8 @@ ActiveRecord::Schema.define(version: 2020_05_20_021615) do
   create_table "spree_vendor_users", force: :cascade do |t|
     t.integer "vendor_id"
     t.integer "user_id"
+    t.bigint "stock_location_id"
+    t.index ["stock_location_id"], name: "index_spree_vendor_users_on_stock_location_id"
     t.index ["user_id"], name: "index_spree_vendor_users_on_user_id"
     t.index ["vendor_id", "user_id"], name: "index_spree_vendor_users_on_vendor_id_and_user_id", unique: true
     t.index ["vendor_id"], name: "index_spree_vendor_users_on_vendor_id"
@@ -1239,6 +1241,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_021615) do
     t.decimal "lat", precision: 10, scale: 6
     t.decimal "lng", precision: 10, scale: 6
     t.string "address"
+    t.integer "delivery_distance", default: 5
     t.index ["deleted_at"], name: "index_spree_vendors_on_deleted_at"
     t.index ["lat", "lng"], name: "index_spree_vendors_on_lat_and_lng"
     t.index ["name"], name: "index_spree_vendors_on_name", unique: true
