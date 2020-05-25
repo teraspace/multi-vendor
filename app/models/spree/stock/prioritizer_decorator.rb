@@ -9,7 +9,9 @@ module Spree::Stock::PrioritizerDecorator
     # Get the closest stock location within the delivery distance ratio
     if vendors.any? && vendors.size == 1
       near_stock_location = stock_locations.near(ship_address.full_address, vendors.first.delivery_distance).first
-      @packages = @packages.select {|p| p.stock_location == near_stock_location }
+      if near_stock_location
+        @packages = @packages.select {|p| p.stock_location == near_stock_location }
+      end
     else
       # TODO: Investigate if this can be possible. Multi vendor with multi stock locations
     end
