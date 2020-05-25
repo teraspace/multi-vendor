@@ -6,6 +6,7 @@ ruby '2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use pg as the database for Active Record
+gem 'sqlite3', '~> 1.4'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
@@ -41,7 +42,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -64,7 +65,6 @@ gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
 gem 'spree_product_assembly', github: 'spree-contrib/spree-product-assembly'
 gem 'spree_social', github: 'spree-contrib/spree_social'
 gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', branch: 'feature/spree-4-1'
-# gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 # gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 gem 'spree-duna-payment', git: 'git@github.com:DUNA-E-Commmerce/spree-duna-payment.git'
 #gem "spree_duna_base_theme", path: "../spree_duna_base_theme"
