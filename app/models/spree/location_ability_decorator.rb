@@ -1,10 +1,8 @@
-module Spree
-  module LocationAbilityActivator
-    private
-    def abilities_to_register
-      super << Spree::LocationManagerAbility
-    end
+module Spree::LocationAbilityDecorator
+  private
+  def abilities_to_register
+    super << Spree::LocationManagerAbility
   end
 end
 
-Spree::Ability.prepend Spree::LocationAbilityActivator
+Spree::Ability.prepend Spree::LocationAbilityDecorator
