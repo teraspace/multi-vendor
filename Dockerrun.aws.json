@@ -3,5 +3,10 @@
   "Image": {
     "Name": "661995054732.dkr.ecr.us-east-2.amazonaws.com/duna-chilis:latest",
     "Update": "false"
-  }
+  },
+  "Ports": [
+    {
+      "ContainerPort": 8000
+    }
+  ]
 }
