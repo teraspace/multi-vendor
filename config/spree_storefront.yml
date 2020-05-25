@@ -1,67 +1,27 @@
 default:
   navigation:
-    - title: Women
+    - title: MENÚ
       subtitle: Categories
-      url: /t/women
-      items:
-        - :title: Skirts
-          :url: /t/women/skirts
-        - :title: Dresses
-          :url: /t/women/dresses
-        - :title: Shirts and Blouses
-          :url: /t/women/shirts-and-blouses
-        - :title: Sweaters
-          :url: /t/women/sweaters
-        - :title: Tops and T-shirts
-          :url: /t/women/tops-and-t-shirts
-        - :title: Jackets and Coats
-          :url: /t/women/jackets-and-coats
+      url: /t/menu
       promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-first-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-first-category.jpg'
-    - title: Men
+        - subtitle: '3 Para mi L199'
+          title: Promo1
+          url: /t/promociones
+          image: 'https://i.ibb.co/SKd8RL6/cover-web.png'
+        - subtitle: Promoción 2
+          title: Promo2
+          url: /t/promociones
+          image: 'https://i.ibb.co/XWqNVC9/banner.png'
+    - title: UBICACIONES
       subtitle: Categories
-      url: /t/men
-      items:
-        - :title: Shirts
-          :url: /t/men/shirts
-        - :title: T-shirts
-          :url: /t/men/t-shirts
-        - :title: Sweaters
-          :url: /t/men/sweaters
-        - :title: Jackets and Coats
-          :url: /t/men/jackets-and-coats
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-second-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Sportswear
+      url: /ubicaciones
+    - title: EVENTOS
       subtitle: Categories
-      url: /t/sportswear
-      items:
-        - :title: Tops
-          :url: /t/sportswear/tops
-        - :title: Sweatshirts
-          :url: /t/sportswear/sweatshirts
-        - :title: Pants
-          :url: /t/sportswear/pants
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-third-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-third-category.jpg'
+      url: /eventos
+    - title: PROMOCIONES
+      subtitle: Categories
+      url: /t/promociones
+    - title: CONTACTO
+      subtitle: Categories
+      url: /contacto
+     

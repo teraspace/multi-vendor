@@ -37,4 +37,9 @@
     <%= f.label :notification_email %>
     <%= f.email_field :notification_email, class: 'form-control' %>
   <% end %>
+  <%= f.field_container :delivery_distance do %>
+    <%= f.label :delivery_distance %>
+    <%= f.number_field :delivery_distance, class: 'form-control' %>
+    <small class="form-text"><%= Spree.t(:delivery_distance_explain) %></small>
+  <% end %>
 </div>
