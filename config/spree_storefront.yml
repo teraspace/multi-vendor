@@ -4,12 +4,12 @@ default:
       subtitle: Categories
       url: /t/menu
       promo_banners:
-        - subtitle: '3 Para mi L199'
-          title: Promo1
+        - subtitle: ''
+          title: ''
           url: /t/promociones
           image: 'https://i.ibb.co/SKd8RL6/cover-web.png'
-        - subtitle: Promoción 2
-          title: Promo2
+        - subtitle: ''
+          title: ''
           url: /t/promociones
           image: 'https://i.ibb.co/XWqNVC9/banner.png'
     - title: UBICACIONES
