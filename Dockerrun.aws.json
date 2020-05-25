@@ -1,6 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-  	"Update": "false"
+    "Name": "661995054732.dkr.ecr.us-east-2.amazonaws.com/duna-chilis:latest",
+    "Update": "false"
   }
 }
