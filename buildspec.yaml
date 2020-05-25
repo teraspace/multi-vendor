@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  parameter-store:
+    duna-spree-deploy: "duna-spree-deploy"
+
 phases:
   pre_build:
     commands:
@@ -10,7 +14,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG  --build-arg SSH_KEY="$duna-spree-deploy" --build-arg RAILS_ENV=production .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
   post_build:
     commands:
