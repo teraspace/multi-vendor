@@ -1219,7 +1219,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_042932) do
   create_table "spree_vendor_users", force: :cascade do |t|
     t.integer "vendor_id"
     t.integer "user_id"
-    t.bigint "stock_location_id"
+    t.integer "stock_location_id"
     t.index ["stock_location_id"], name: "index_spree_vendor_users_on_stock_location_id"
     t.index ["user_id"], name: "index_spree_vendor_users_on_user_id"
     t.index ["vendor_id", "user_id"], name: "index_spree_vendor_users_on_vendor_id_and_user_id", unique: true

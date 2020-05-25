@@ -1,0 +1,5 @@
+commands:
+  01_copy_deploy_keys:
+    command: aws s3 cp s3://duna-deploy-keys/duna_deploy_rds duna_deploy_rds
+    command: aws s3 cp s3://duna-deploy-keys/duna_deploy_base_rds duna_deploy_base_rds
+    command: printf "IdentityFile ~/.ssh/duna_deploy_rds\nIdentityFile ~/.ssh/duna_deploy_base_rds" > ~/.ssh/config

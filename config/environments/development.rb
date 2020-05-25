@@ -53,9 +53,13 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   config.webpacker.check_yarn_integrity  = false
+
+  config.log_level = :info
+
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
-  config.hosts << "multi-vendor.us-east-2.elasticbeanstalk.com"
+  #   config.hosts << "multi-vendor.us-east-2.elasticbeanstalk.com"
+  config.hosts << "duna-chilis-dev-ecomm.eba-22z8fw7f.us-east-2.elasticbeanstalk.com"
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
