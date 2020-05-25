@@ -14,11 +14,15 @@ ENV RAILS_ENV=${RAILS_ENV} \
 
 RUN groupadd -r app --gid=1000 \
  && useradd -r -m -g app -d /home/app --uid=1000 app \
- && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_8.x | bash -RAILS_ENV \
  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \
  && apt-get install -y nodejs build-essential libpq-dev yarn
+
+ADD /root/.ssh/duna_deploy_rds /home/app/.ssh/duna_deploy_rds
+ADD /root/.ssh/duna_deploy_base_rds /home/app/.ssh/duna_deploy_base_rds
+RUN printf "IdentityFile /home/app/.ssh/duna_deploy_rds\nIdentityFile /home/app/.ssh/duna_deploy_base_rds" > ~/.ssh/config
 
 WORKDIR $APP_HOME
 

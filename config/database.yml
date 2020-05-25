@@ -26,7 +26,7 @@ default: &default
   port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
 development:
   <<: *default
-  database: spree-multi-vendor
+  database: <%= ENV['DATABASE'] %>
 
 
 # Warning: The database defined as "test" will be erased and
