@@ -2,20 +2,6 @@
     * The project runs at port 8000, so please make sure that nothing else is running on port 8000
     * Clone the project repository
     * cd inside_project_folder/
-    * docker-compose up --build
-    * Open another terminal and run the following commands in the same project directory.
-    * docker-compose exec web bundle exec rails db:create
-    * docker-compose exec web bundle exec rails db:migrate
-    * docker-compose exec web bundle exec rails db:seed
-    * docker-compose exec web bundle exec rake spree_sample:load 
-    * docker-compose exec web bundle exec rails g spree:frontend:copy_storefront
-    * docker-compose exec web bundle exec rake spree_multi_vendor:sample:create
-    * Visit http://localhost:8000/    
-
-# Mateo Setup - local with Docker
-    * The project runs at port 8000, so please make sure that nothing else is running on port 8000
-    * Clone the project repository
-    * cd inside_project_folder/
     * docker-compose run web bundle install
     * docker-compose up --build
     * Open another terminal and run the following commands in the same project directory.
