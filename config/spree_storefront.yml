@@ -2,14 +2,14 @@ default:
   navigation:
     - title: Nuestro Menú
       subtitle: Categories
-      url: /t/nuestro_menu
+      url: /t/nuestro-menu
       items:
         - :title: Pizzas
-          :url: /t/nuestro_menu/pizzas
+          :url: /t/nuestro-menu/pizzas
         - :title: Acompañantes
-          :url: /t/nuestro_menu/acompañantes
+          :url: /t/nuestro-menu/acompanantes
         - :title: Promociones
-          :url: /t/nuestro_menu/promociones
+          :url: /t/nuestro-menu/promociones
       promo_banners:
         - subtitle: New collection
           title: Summer 2019
