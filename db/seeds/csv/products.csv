@@ -1,0 +1,4 @@
+sku,name,description,price,vendor_name,stock_location_name,stock
+producto123,Productó 1,,500,Chilis,Chilis Centro,100
+producto222,Producto con ñ 2,,1000,Chilis,Chilis Centro,1000
+producto321,Producto 3,,2000,Chilis,Chilis Oriente,2000
