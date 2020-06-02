@@ -24,8 +24,6 @@ ENV DATABASE_HOST=${DATABASE_HOST}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV DATABASE_USERNAME=${DATABASE_USERNAME}
 
-#-e DATABASE="spree-chilis" -e DATABASE_HOST="spree.cw2qbdruiqen.us-east-2.rds.amazonaws.com" -e DATABASE_PASSWORD="Rendezvous21##" -e DATABASE_USERNAME="postgres" -e RAILS_MASTER_KEY=2c5c7148389f43fa65037b81dad85767
-
 
 ARG SSH_KEY
 ENV SSH_KEY=$SSH_KEY
@@ -75,7 +73,7 @@ RUN yarn install --check-files
 
 ARG ASSET_HOST
 
-#RUN bundle exec rake assets:precompile ASSET_HOST=${ASSET_HOST}  RAILS_ENV=production RAILS_GROUPS=assets
+#RUN bundle exec rake assets:precompile ASSET_HOST=${ASSET_HOST}  RAILS_ENV=production
 
 RUN rm /home/app/.ssh/duna_deploy_rds
 
