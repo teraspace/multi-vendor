@@ -65,3 +65,5 @@ gem 'spree_product_assembly', github: 'spree-contrib/spree-product-assembly'
 gem 'spree_social', github: 'spree-contrib/spree_social'
 gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', branch: 'feature/spree-4-1'
 # gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
+
+gem 'duna_spree_sample', github: 'MateoLa/duna_spree_sample'

@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/MateoLa/duna_spree_sample.git
+  revision: 8e8edf733edd7141f40e16594ab299079a4e758c
+  specs:
+    duna_spree_sample (1.0.0)
+      highline (~> 2.0.0)
+      spree
+
+GIT
   remote: https://github.com/spark-solutions/spree_multi_currency.git
   revision: 2c410f1c5f035c47c4d2fe8e3931e9e84b02671f
   branch: feature/spree-4-1
@@ -506,6 +514,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  duna_spree_sample!
   figaro (~> 1.1, >= 1.1.1)
   geocoder
   jbuilder (~> 2.7)
