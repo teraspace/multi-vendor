@@ -507,6 +507,11 @@ es:
     charged: Cobrado
     check_for_spree_alerts: Comprobar alertas de Spre
     checkout: Realizar pedido
+    checkout_page:
+      back_to_cart: Volver al carro
+      delivery_method: método de despacho
+      header: Checkout
+      product: Producto
     choose_a_customer: Escoge un cliente
     choose_a_taxon_to_sort_products_for: Escoge una clase de productos
     choose_currency: Escoge moneda
@@ -530,6 +535,7 @@ es:
     confirm_password: Confirmación del Password
     continue: Continuar
     continue_shopping: Continuar compra
+    continue_as_guest: Continuar como invitado
     cost_currency: Moneda de costo
     cost_price: Precio de costo
     could_not_connect_to_jirafe: No se pudo conectar a Jirafe para sincronizar los datos. Se intentará más tarde automáticamente.
@@ -774,7 +780,8 @@ es:
     logged_in_as: Identificado como
     logged_in_succesfully: Conectado con éxito
     logged_out: Se ha cerrado la sesión.
-    login: Validación
+    login: Ingresar
+    log_in: Ingresar
     login_as_existing: Validarse como cliente existente
     login_failed: No se ha podido iniciar la sesión, error de autenticación.
     login_name: Validación
