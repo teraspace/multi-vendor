@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_031723) do
+ActiveRecord::Schema.define(version: 2020_06_07_210159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -894,6 +894,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_031723) do
     t.integer "tax_category_id"
     t.string "code"
     t.integer "vendor_id"
+    t.boolean "pickup", default: false
     t.index ["deleted_at"], name: "index_spree_shipping_methods_on_deleted_at"
     t.index ["tax_category_id"], name: "index_spree_shipping_methods_on_tax_category_id"
     t.index ["vendor_id"], name: "index_spree_shipping_methods_on_vendor_id"
