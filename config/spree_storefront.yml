@@ -1,29 +1,33 @@
 default:
   navigation:
-    - title: Nuestro Menú
-      subtitle: Categories
-      url: /t/nuestro-menu
-      items:
-        - :title: Pizzas
-          :url: /t/nuestro-menu/pizzas
-        - :title: Acompañantes
-          :url: /t/nuestro-menu/acompanantes
-        - :title: Promociones
-          :url: /t/nuestro-menu/promociones
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-first-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-first-category.jpg'
-    - title: Nuestra Historia
-      subtitle:
-      url:
-      items:
-    - title: Restaurantes
-      subtitle: 
-      url: 
-      items:
+    - title: Especialidades
+#      subtitle: Categories
+      url: /t/especialidades
+#      items:
+#        - :title: Pizzas
+#          :url: /t/nuestro-menu/pizzas
+#        - :title: Acompañantes
+#          :url: /t/nuestro-menu/acompanantes
+#        - :title: Promociones
+#          :url: /t/nuestro-menu/promociones
+#      promo_banners:
+#        - subtitle: New collection
+#          title: Summer 2019
+#          url: /t/new-collection/summer-2019
+#          image: 'meganav/promo_banner_left-first-category.jpg'
+#        - subtitle: Special Offers
+#          title: Get up to 30% off
+#          url: /t/special-offers/30-off
+#          image: 'meganav/promo_banner_right-first-category.jpg'
+    - title: Clásicas
+#      subtitle:
+      url: /t/clasicas
+#      items:
+    - title: Individuales
+#      subtitle: 
+      url: /t/individuales
+#      items:
+    - title: Complementos
+#      subtitle: 
+      url: /t/complementos
+#      items:

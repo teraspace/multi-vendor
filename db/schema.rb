@@ -1067,8 +1067,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_042932) do
     t.string "facebook"
     t.string "twitter"
     t.string "instagram"
-    t.string "primary_color"
-    t.string "secondary_color"
     t.index "lower((code)::text)", name: "index_spree_stores_on_lower_code", unique: true
     t.index ["default"], name: "index_spree_stores_on_default"
     t.index ["url"], name: "index_spree_stores_on_url"
