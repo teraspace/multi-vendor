@@ -1,0 +1,2 @@
+Host *github.com    
+   IdentityFile /home/app/.ssh/duna_deploy_rds
