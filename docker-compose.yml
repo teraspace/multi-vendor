@@ -19,6 +19,7 @@ services:
     depends_on:
       - db
     environment:
+      RAILS_ENV: development
       DATABASE_PASSWORD: password
       DATABASE_HOST: db
       DATABASE_USERNAME: postgres
