@@ -10,7 +10,7 @@
     * docker-compose exec web bundle exec rails db:migrate
     * docker-compose exec web bundle exec rake duna_spree_sample:load
     * docker-compose exec web bundle exec rake spree_auth:admin:create
-    * docker-compose exec web bundle exec rake spree_multi_vendor:sample:create
+
     * Visit http://localhost:8000/
 
     * Tuve que hacer:
