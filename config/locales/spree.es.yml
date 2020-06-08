@@ -381,6 +381,25 @@ es:
     additional_item: Coste de artículo adicional
     address1: Dirección
     address2: Dirección (cont.)
+    addresses: Direcciones
+    address_action_popup:
+      delete_button: Si, eliminar
+      delete_text: ¿De verdad quieres <br /> eliminar esta dirección?
+      delete_title: ¿Está seguro?
+    address_book:
+      other_address: "Otra dirección"
+      add_new_shipping_address: "Agregar nueva dirección"
+      new_shipping_address: "Nueva dirección"
+      edit_shipping_address: "Editar dirección"
+      no_shipping_addresses_on_file: "No hay direcciones"
+      shipping_addresses: "Direcciones"
+      successfully_created: "Dirección ha sido creada exitosamente."
+      successfully_removed: "Dirección ha sido eliminada exitosamente."
+      successfully_saved: "Guardado exitoso"
+      unsuccessfully_saved: "Hubo un error mientras se intentaba guardar tu dirección."
+      successfully_updated: "Actualizado exitoso"
+      unsuccessfully_updated: "Hubo un error mientras se intentaba actualizar tu dirección."
+      save: "Guardar"
     adjustable: Ajustable
     adjustment: Ajuste
     adjustment_amount: Cuantía
@@ -501,6 +520,14 @@ es:
     card_type: Tipo de Tarjeta
     card_type_is: Tipo de tarjeta es
     cart: Carrito
+    cart_page:
+      add_promo_code: Agregar código cupon
+      checkout: Checkout
+      empty_info: 'Tu carro de compras está vacio.'
+      header: Tu carro de compra
+      product: producto
+      quantity: cantidad
+      title: Carro de Compra
     cart_subtotal: Subtotal del carrito
     categories: Categorías
     category: Categoría
@@ -927,6 +954,7 @@ es:
         total: Total
     order_not_found: No pudimos encontrar tu pedido. Por favor intenta esta acción de nuevo
     order_number: Número de orden
+    order_pickup: Retiro en tienda
     order_processed_successfully: Tu pedido ha sido procesado con éxito
     order_resumed: Orden reanudada
     order_state:
@@ -939,6 +967,7 @@ es:
       considered_risky: considerado arriesgado
       delivery: Entrega
       payment: Pago
+      pickup: Pickup
       resumed: reanudado
       returned: devuelto
     order_summary: Resumen del pedido
@@ -979,6 +1008,7 @@ es:
       pending: pendiente
       processing: en proceso
       void: anular
+    payment_type: Tipo de pago
     payment_updated: Pago actualizado
     payments: Pagos
     pending: Pendiente
@@ -988,6 +1018,31 @@ es:
     phone: Teléfono
     place_order: Ponga el pedido
     please_define_payment_methods: Por favor define algún método de pago primero
+    plp:
+      best_selling: MEJOR VENDIDOS
+      clear_all: LIMPIAR TODO
+      collection: COLECCIÓN
+      color: COLOR
+      done: LISTO
+      default: DEFAULT
+      filter_by: FILTRAR POR
+      home: Inicio
+      newest_first: MÁS NUEVOS PRIMEROS
+      no_results: Sin resultados
+      no_results_found: No se encontraron resultados
+      not_found_filters1: We couldn’t find a match for these filters.
+      not_found_filters2: Por favor intenta otra elección.
+      not_found_text1: We couldn’t find products for '%{keywords}'.
+      not_found_text2: Por favor intenta otra busqueda.
+      price: precio
+      price_high_to_low: PRICE (HIGH - LOW)
+      price_low_to_high: PRICE (LOW - HIGH)
+      result: RESULTADO
+      results_for: RESULTADOS PARA
+      size: SIZE
+      sort_by: ORDENAR POR
+      top_sellers: TOP VENDIDOS
+      type: TIPO
     populate_get_error: Algo salió mal. Por favor intenta añadir el artículo otra vez.
     powered_by: Desarrollado por
     pre_tax_amount: Cantidad Sin Impuestos
@@ -1121,6 +1176,7 @@ es:
     rename: Renombrar
     report: Reporte
     reports: Informes
+    required_fields: Campos requeridos
     resend: Reenviar
     reset_password: Reinicializar password
     response_code: Código de respuesta
@@ -1295,6 +1351,8 @@ es:
     store: Tienda
     stores: Tiendas
     store_credit_name: Crédito de tienda
+    store_credit_payment_method:
+      currency_mismatch: La moneda de la orden no coincide con el crédito de tienda
     store_default: Tienda predeterminada
     store_set_default_button: Definir como predeterminada
     street_address: Calle
