@@ -8,5 +8,6 @@ Deface::Override.new(
         <% else %>
           <td><%= stock_location.full_address %></td>
         <% end %>
+        <td><%= stock_location.available_for_pickup? %></td>
         HTML
 )

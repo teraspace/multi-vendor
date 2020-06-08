@@ -4,5 +4,6 @@ Deface::Override.new(
   insert_before: 'th.actions',
   text: <<-HTML
           <th><%= Spree.t(:full_address) %></th>
+          <th><%= Spree.t(:available_for_pickup) %></th>
         HTML
 )
