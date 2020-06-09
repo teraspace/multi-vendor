@@ -1,0 +1,137 @@
+
+function getCurrentOrder(){
+  var _that =  $.ajax({
+    type: 'GET',
+    url: (Spree.pathFor('/api/v1/orders/' + Spree.current_order_id +'?order_token=' + Spree.current_order_token) ),
+    dataType: 'json'
+  })
+  return _that
+}
+
+
+function show_flash (type, message) {
+  var flashDiv = $('.alert-' + type)
+  if (flashDiv.length === 0) {
+    flashDiv = $('<div class="alert alert-' + type + '" />')
+    $('#content').prepend(flashDiv)
+  }
+  flashDiv.html(message).show().delay(10000).slideUp()
+}
+function verifyCard(payload) {
+    console.log('verifyCard')
+   var gateway_response =  $.ajax({
+        type: 'POST',
+        url: ('http://18.224.5.23/api/v1/authorization' ),
+        headers: {
+            "X-Auth-Secret":"test",
+            "X-Auth-Key":"test",
+            "Content-Type":"application/json"
+        },
+        data: JSON.stringify(payload)
+      })
+      
+      return gateway_response
+      
+}
+function _verifyCard(payload) {
+  console.log('verifyCard')
+  return new Promise(function (resolve, reject){
+    setTimeout(function(){
+      resolve(THREEDSECURE)
+    },200)
+  });
+    
+
+    
+}
+function getPaymentMethodSelected(){
+  var _active = -1
+  var  m = $('input[type="radio"][name="order[payments_attributes][][payment_method_id]"]')
+  for(var i=0;i<m.length;i++){
+    console.log(m[i])
+    if(m[i].checked)
+      _active =  m[i].value
+  }
+  return _active
+}
+
+$(function() {
+  console.log(Spree)
+  console.log(Spree.pathFor('/api'))
+  console.log(Spree.current_order_id)
+
+  console.log(Spree.current_order_token)
+
+
+
+
+    var submit_selector = $("#checkout_form_payment .payment_button")
+    console.log(submit_selector)
+    if (submit_selector[0]==undefined) return;
+    console.log(submit_selector)
+
+
+    var _active = getPaymentMethodSelected()
+    var _order = getCurrentOrder()
+    
+    submit_selector.click(function(){
+      var order_data = _order.responseJSON
+      console.log(order_data)
+
+      console.log('probando gate way')
+      _active = getPaymentMethodSelected()
+      console.log("input[name=payment_source["+_active+"][name]]")
+      var _name = $("input[name='payment_source["+_active+"][name]']").val();
+      var _number = $("input[name='payment_source["+_active+"][number]']").val();
+      var _expiry = $("input[name='payment_source["+_active+"][expiry]']").val();
+      var _cvv = $("input[name='payment_source["+_active+"][verification_value]']").val();
+      console.log(_name, _number, _expiry, _cvv)
+
+      if(!_number ||!_expiry || !_name || !_cvv) {
+        alert("Datos incompletos!.")
+        return false;
+      } else {
+        var _amount, _transaction_id
+        try {
+          _amount = order_data.total
+          _amount = Number(_amount.replace(/[^0-9.-]+/g,""));
+          _transaction_id = Number(Spree.current_order_id.replace(/[^0-9.-]+/g,""));
+          console.log(_transaction_id)
+        }catch(e){
+          console.log(e)
+          return false;
+        }
+ 
+        var _payload = {
+          "transaction_id": Spree.current_order_id,
+          "amount" :_amount,
+          "decimals":"2",
+          "ip_address":"127.0.0.1",
+          "card_details": {
+              "card_number": _number.split(' ') .filter(word => word).join(''),
+              "cvv": _cvv,
+              "expiry_date": _expiry.split(' ') .filter(word => word).join('').split('/') .filter(word => word).join('')
+          }
+        }
+        console.log(_payload)
+        verifyCard(_payload).then(function(response){
+          console.log(response)
+          $('.payment-gateway').append(' <div id="three_sec"> </div> ' )
+          $('#three_sec').html(response.HTMLFormData)
+          console.log($('#three_sec'))
+
+        }).catch(function(error){
+          console.log(error)
+        })
+      }
+        
+    
+
+
+     
+      return false;
+    })
+   
+
+
+});
