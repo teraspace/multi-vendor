@@ -42,7 +42,8 @@ RUN gem install bundler -v 2.1.4
 
 ## Install dependencies
 RUN mkdir -p /opt/vendor/bundle && chown -R app:app /opt/vendor \
- && su app -s /bin/bash -c "bundle install --path /opt/vendor/bundle"
+ && su app -s /bin/bash -c "bundle install --path /opt/vendor/bundle" \
+ && su app -s /bin/bash -c "bundle update"
 
 
 # Copy the main application.
