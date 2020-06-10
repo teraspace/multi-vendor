@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/MateoLa/duna_spree_sample.git
-  revision: 64ecaa9c46223eb95b199ce097e6fa10556a0e46
+  revision: c6976903e2ae0b4da50ca242c39559e24fc15299
   specs:
     duna_spree_sample (1.0.0)
       highline (~> 2.0.0)
@@ -113,7 +113,7 @@ GEM
     activejob (6.0.3.1)
       activesupport (= 6.0.3.1)
       globalid (>= 0.3.6)
-    activemerchant (1.107.4)
+    activemerchant (1.108.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -194,7 +194,7 @@ GEM
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     ffaker (2.15.0)
-    ffi (1.13.0)
+    ffi (1.13.1)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     friendly_id (5.3.0)
