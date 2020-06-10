@@ -65,8 +65,8 @@ ARG ASSET_HOST
 # Expose port 8080 to the Docker host, so we can access it
 # from the outside.
 EXPOSE 8000
-
-
+COPY ./preflight.sh /
+ENTRYPOINT ["/preflight.sh"]
 # The main command to run when the container starts. Also
 # tell the Rails dev server to bind to all interfaces by
 # default.
