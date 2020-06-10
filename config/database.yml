@@ -26,7 +26,7 @@ default: &default
   port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
 development:
   <<: *default
-  database: spree-multi-vendor
+  database: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
 
 
 # Warning: The database defined as "test" will be erased and
@@ -57,5 +57,5 @@ test:
 #
 production:
   <<: *default
-  database: my_store_production
+  database: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
 
