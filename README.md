@@ -6,14 +6,14 @@
     * docker-compose up --build
     * Open another terminal and run the following commands in the same project directory.
     * docker-compose exec web bundle exec rails g duna_spree_sample:install
-        * El comando anterior carga assets (css, js, imágenes), views, "spree_storefront.yml" y "seeds.rb"
-    * docker-compose exec web bundle exec rake duna_spree_sample:clear_tables
-    * docker-compose exec web bundle exec rails db:migrate
-    * Optional: Check the tables were created and cleaned with the command:
-        * docker-compose run db psql -h db -U postgres spree-multi-vendor
-    * docker-compose exec web bundle exec rake duna_spree_sample:load
-        * El comando anterior popula la DB con el modelo de Little Caesars    
-    * docker-compose exec web bundle exec rake spree_auth:admin:create
+    
+    * El comando anterior:
+    *   - carga assets, views y otros archivos necesarios.
+    *   - limpia las tablas de la DB.
+    *   - popula la DB con los datos para Little Caesars
+    *   - genera el admin user: admin@duna.hn + passwd: admin123
+    * Optional: Check the DB with the command:
+    *   - docker-compose run db psql -h db -U postgres spree-multi-vendor
 
     * Visit http://localhost:8000/
 
