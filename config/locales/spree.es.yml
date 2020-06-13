@@ -481,6 +481,7 @@ es:
     authorization_failure: Fallo en la autorización
     authorized: Autorizado
     auto_capture: Auto captura
+    available_for_pickup: Disponible para retiro en tienda
     available_on: Disponible desde
     average_order_value: Promedio de valor de orden
     avs_response: Respuesta de AVS
@@ -795,6 +796,7 @@ es:
       path: Ruta
     last_name: Apellidos
     last_name_begins_with: Apellido comienza con
+    latitude: Latitud
     learn_more: Aprender más
     lifetime_stats: Histórico de estadísticas
     line_item_adjustments: Ajustes de línea de pedido
@@ -814,6 +816,7 @@ es:
     login_name: Validación
     logout: Cerrar sesión
     logs: "Logs"
+    longitude: Longitud
     look_for_similar_items: Buscar artículos similares
     make_refund: Realizar devolución
     make_sure_the_above_reimbursement_amount_is_correct: Asegúrese de que la cantidad a devolver es la correcta
@@ -853,6 +856,7 @@ es:
       show_search: Mostrar buscador
       show_user_menu: Mostrar menú de usuario
       sign_up: REGISTRO
+    nearest_stock_location: Tienda más cercana
     new: Nuevo
     new_adjustment: Nuevo Ajuste
     new_country: Nuevo País
@@ -934,6 +938,7 @@ es:
     order_approved: Pedido Aprovado
     order_canceled: Pedido Cancelado
     order_details: Detalles del pedido
+    order_delivery: Despacho a domicilio
     order_email_resent: Email de pedido reenviado
     order_information: Información del pedido
     order_mailer:
@@ -953,7 +958,7 @@ es:
         thanks: "¡Gracias por su compra!"
         total: Total
     order_not_found: No pudimos encontrar tu pedido. Por favor intenta esta acción de nuevo
-    order_number: Número de orden
+    order_number: Número de orden %{number}
     order_pickup: Retiro en tienda
     order_processed_successfully: Tu pedido ha sido procesado con éxito
     order_resumed: Orden reanudada
@@ -1259,9 +1264,10 @@ es:
       shipped: Enviado
     shipment_transfer_error: Error de transferencia de pedido
     shipment_transfer_success: Transferencia de pedido exitosa
+    shipment_type: Método de entrega
     shipments: Envíos
     shipped: Enviado
-    shipping: Envío
+    shipping: Método de entrega
     shipping_address: Dirección de envío
     shipping_categories: Categorías de envío
     shipping_category: Categoría de Envío

@@ -11,7 +11,16 @@
     </div>
     <div id="locations_pickup">
       <ul class="list-group">
-        <% Spree::StockLocation.for_pickup.each do |location| %>
+        <% stock_locations = Spree::StockLocation.for_pickup %>
+        <% if session[:coords].present? %>
+          <% stock_locations = stock_locations.near([session[:coords]['latitude'], session[:coords]['longitude']], 5) %>
+        <% else %>
+          <% if current_spree_user && current_spree_user.ship_address %>
+            <% stock_locations = stock_locations.near(current_spree_user.ship_address.full_address, 5) %>
+          <% end %>
+        <% end %>
+        
+        <% stock_locations.each_with_index do |location, index| %>
           <span class="d-block mb-2">
             <label class="form-check-label spree-radio-label">
               <%= radio_button_tag "order[stock_location_id]", location.id %>
@@ -19,6 +28,9 @@
               <span class="d-inline-block align-top">
                 <%= location.name %>
               </span>
+              <% if index == 0 %>
+                <span class="nearest-stock-location"><%= Spree.t(:nearest_stock_location) %></span>
+              <% end %>
             </label>
           </span>
         <% end %>
