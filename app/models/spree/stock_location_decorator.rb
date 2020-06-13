@@ -2,6 +2,8 @@ module Spree::StockLocationDecorator
   def self.prepended(base)
     base.geocoded_by :full_address, latitude: :lat, longitude: :lng
     base.after_validation :geocode, if: ->(obj) { obj.full_address.present? }
+
+    base.scope :for_pickup, -> { where(available_for_pickup: true)}
   end
 
   def google_location
