@@ -49,6 +49,7 @@
             <th class="text-uppercase text-secondary account-page-order-status"><%= Spree.t(:status) %></th>
             <th class="text-uppercase text-secondary account-page-order-payment-state"><%= Spree.t(:payment_state) %></th>
             <th class="text-uppercase text-secondary account-page-order-shipment-state"><%= Spree.t(:shipment_state) %></th>
+            <th class="text-uppercase text-secondary account-page-order-shipment-type"><%= Spree.t(:shipment_type) %></th>
             <th class="text-uppercase text-secondary account-page-order-total"><%= Spree.t(:total) %></th>
           </tr>
         </thead>
@@ -60,6 +61,7 @@
               <td class="account-page-order-status"><%= Spree.t("order_state.#{order.state}").titleize %></td>
               <td class="account-page-order-payment-state"><%= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
               <td class="account-page-order-shipment-state"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
+              <td class="account-page-order-shipment-type"><%= order.pickup? ? Spree.t(:order_pickup) : Spree.t(:order_delivery) %></td>
               <td class="account-page-text-primary account-page-order-total account-page-lead"><%= order.display_total %></td>
               <td class="account-page-arrow-container" data-order-path="<%= spree.order_path(order) %>">
                 <%= link_to '', spree.order_path(order), { class: "account-page-order-arrow" } %>
