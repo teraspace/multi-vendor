@@ -1,0 +1,27 @@
+
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - /tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: spree-multi-vendor
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile-dev
+    volumes:
+      - .:/home/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
