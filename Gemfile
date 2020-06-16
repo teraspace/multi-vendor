@@ -51,6 +51,7 @@ group :test do
 end
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'geocoder'
+gem 'aws-sdk-sns'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
