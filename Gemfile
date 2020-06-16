@@ -68,3 +68,4 @@ gem 'spree_multi_currency', github: 'spark-solutions/spree_multi_currency', bran
 # gem 'spree_multi_domain', github: 'spree-contrib/spree-multi-domain'
 
 gem 'duna_spree_sample', github: 'MateoLa/duna_spree_sample'
+gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
