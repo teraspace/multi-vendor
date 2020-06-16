@@ -1,17 +1,19 @@
+
 version: '3'
 services:
   db:
     image: postgres
     volumes:
-      - ../../tmp/db:/var/lib/postgresql/data
+      - /tmp/db:/var/lib/postgresql/data
     ports:
       - "5432"
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: spree-multi-vendor
   web:
-    build: .
-    command: /bin/sh -c "rm -f /home/app/tmp/pids/server.pid && bundle exec rails s -p 8000 -b '0.0.0.0'"
+    build: 
+      context: .
+      dockerfile: Dockerfile-dev
     volumes:
       - .:/home/app
     ports:

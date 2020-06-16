@@ -2,8 +2,7 @@
     * The project runs at port 8000, so please make sure that nothing else is running on port 8000
     * Clone the project repository
     * cd inside_project_folder/
-    * docker-compose run web bundle update    
-    * docker-compose up --build
+    * docker-compose -f docker-compose-dev.yml up
     * Open another terminal and run the following commands in the same project directory.
     * docker-compose exec web bundle exec rails g duna_spree_sample:install
     

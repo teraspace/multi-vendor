@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/MateoLa/duna_spree_sample.git
-  revision: 2cccce76bb0573fdc2ba1dfb476183f63ebf46cf
+  revision: 593ed437a7cf281e5eeb13c6add0b10ecd226036
   specs:
     duna_spree_sample (1.0.0)
       highline (~> 2.0.0)
@@ -315,7 +315,7 @@ GEM
       nio4r (~> 2.0)
     rabl (0.14.3)
       activesupport (>= 2.3.14)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)

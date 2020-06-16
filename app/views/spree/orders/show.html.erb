@@ -16,12 +16,14 @@
     <%= accurate_title %> / <%= @order.completed_at.to_date.to_s(:long) %>
   </p>
   <dl class="w-100 d-lg-flex justify-content-lg-between">
-    <div>
-      <dt class="text-uppercase text-center text-lg-left"><%= Spree.t(:shipping_address) %></dt>
-      <dd class="text-center text-lg-left">
-        <%= render 'spree/shared/address', address: @order.ship_address %>
-      </dd>
-    </div>
+    <% unless @order.pickup? %>
+      <div>
+        <dt class="text-uppercase text-center text-lg-left"><%= Spree.t(:shipping_address) %></dt>
+        <dd class="text-center text-lg-left">
+          <%= render 'spree/shared/address', address: @order.ship_address %>
+        </dd>
+      </div>
+    <% end %>
     <div>
       <dt class="text-uppercase text-center text-lg-left"><%= Spree.t(:billing_address) %></dt>
       <dd class="text-center text-lg-left">
@@ -33,6 +35,7 @@
       <% @order.shipments.valid.each do |shipment| %>
         <dd class="text-center text-lg-left">
           <%= shipment.shipping_method.name %>
+          <%= shipment.stock_location.name if @order.pickup? %>
           <%= link_to_tracking(shipment) if shipment.shipped? %>
         </dd>
       <% end %>
