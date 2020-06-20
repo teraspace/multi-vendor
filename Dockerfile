@@ -17,12 +17,15 @@ ARG DATABASE
 ARG DATABASE_HOST
 ARG DATABASE_PASSWORD
 ARG DATABASE_USERNAME
+ARG GOOGLE_MAPS_API_KEY
+ARG GOOGLE_MAPS_API_KEY
 
 
 ENV DATABASE=${DATABASE}
 ENV DATABASE_HOST=${DATABASE_HOST}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV DATABASE_USERNAME=${DATABASE_USERNAME}
+ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
 
 
 RUN groupadd -r app --gid=1000 \
@@ -40,14 +43,23 @@ COPY Gemfile  $APP_HOME/
 
 RUN gem install bundler -v 2.1.4
 
+# Copy the main application.
+COPY . $APP_HOME
+
+#
+RUN chown app:app /home/app/Gemfile.lock
+RUN chown app:app /home/app/storage -R
+
 ## Install dependencies
 RUN mkdir -p /opt/vendor/bundle && chown -R app:app /opt/vendor \
  && su app -s /bin/bash -c "bundle install --path /opt/vendor/bundle" \
  && su app -s /bin/bash -c "bundle update"
 
 
-# Copy the main application.
-COPY . $APP_HOME
+# RUN CUSTOM SCRIPT WITH CUSTOM STEPS
+RUN chmod +x $APP_HOME/build.sh
+
+RUN su app -s /bin/bash -c  "$APP_HOME/build.sh"
 
 RUN chown -R app:app $APP_HOME
 
@@ -55,8 +67,7 @@ USER app
 
 # Initialize application configuration & assets.
 #RUN bundle exec rake assets:precompile
-RUN yarn install --check-files
-#
+RUN yarn install
 
 ARG ASSET_HOST
 
