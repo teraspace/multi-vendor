@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_210159) do
+ActiveRecord::Schema.define(version: 2020_06_16_173059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -395,7 +395,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_210159) do
     t.decimal "shipment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal "promo_total", precision: 10, scale: 2, default: "0.0"
-    t.string "channel", default: "spree"
+    t.string "channel", default: "d-una"
     t.decimal "included_tax_total", precision: 10, scale: 2, default: "0.0", null: false
     t.integer "item_count", default: 0
     t.integer "approver_id"
@@ -410,6 +410,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_210159) do
     t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.boolean "pickup"
+    t.datetime "enqueued_at"
     t.index ["approver_id"], name: "index_spree_orders_on_approver_id"
     t.index ["bill_address_id"], name: "index_spree_orders_on_bill_address_id"
     t.index ["canceler_id"], name: "index_spree_orders_on_canceler_id"

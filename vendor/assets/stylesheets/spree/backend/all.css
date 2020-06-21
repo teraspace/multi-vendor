@@ -5,6 +5,8 @@
  *
  *= require spree/backend
 
+ *= require duna_spree_sample/backend/duna-sample
+
  *= require_self
  *= require_tree .
 */
