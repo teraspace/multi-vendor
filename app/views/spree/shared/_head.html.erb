@@ -7,5 +7,6 @@
 <%= stylesheet_link_tag 'spree/frontend/all', media: 'screen', 'data-turbolinks-track': 'reload' %>
 <%= csrf_meta_tags %>
 <%= render 'spree/shared/paths' %>
+ <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.config[:google_api_key]+'&libraries=places' %>
 <%= javascript_include_tag 'spree/frontend/all', defer: true, 'data-turbolinks-track': 'reload' %>
 <%= yield :head %>
