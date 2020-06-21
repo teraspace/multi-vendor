@@ -69,9 +69,13 @@ USER app
 #RUN bundle exec rake assets:precompile
 RUN yarn install
 
+RUN rake db:migrate
+
 ARG ASSET_HOST
 
 #RUN bundle exec rake assets:precompile ASSET_HOST=${ASSET_HOST}  RAILS_ENV=production
+
+RUN bundle exec rake assets:precompile RAILS_ENV=production
 
 # Expose port 8080 to the Docker host, so we can access it
 # from the outside.
