@@ -38,7 +38,6 @@ services:
       context: .
       dockerfile: Dockerfile-dev
       args:
-        # - GOOGLE_MAPS_API_KEY=AIzaSyCgCBMQn6nEeOjddAnX82XPSiWoumGx604
         - REDIS_HOST=redis
         - ASSET_HOST=nginx
     volumes:
