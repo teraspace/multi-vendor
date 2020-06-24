@@ -30,7 +30,7 @@ ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
 
 RUN groupadd -r app --gid=1000 \
  && useradd -r -m -g app -d /home/app --uid=1000 app \
- && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+ && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
  && apt-get update \
@@ -47,7 +47,6 @@ RUN gem install bundler -v 2.1.4
 COPY . $APP_HOME
 
 #
-RUN bundle config set path '/opt/vendor/bundle'
 RUN chown app:app /home/app/Gemfile.lock
 RUN chown app:app /home/app/storage -R
 
@@ -60,6 +59,8 @@ RUN mkdir -p /opt/vendor/bundle && chown -R app:app /opt/vendor \
 # RUN CUSTOM SCRIPT WITH CUSTOM STEPS
 RUN chmod +x $APP_HOME/build.sh
 
+RUN su app -s /bin/bash -c  "$APP_HOME/build.sh"
+
 RUN chown -R app:app $APP_HOME
 
 USER app
@@ -68,10 +69,13 @@ USER app
 #RUN bundle exec rake assets:precompile
 RUN yarn install
 
+RUN rake db:migrate
+
 ARG ASSET_HOST
 
 #RUN bundle exec rake assets:precompile ASSET_HOST=${ASSET_HOST}  RAILS_ENV=production
 
+RUN bundle exec rake assets:precompile RAILS_ENV=production
 
 # Expose port 8080 to the Docker host, so we can access it
 # from the outside.
