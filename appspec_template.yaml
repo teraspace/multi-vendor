@@ -4,4 +4,7 @@ Resources:
       Type: AWS::ECS::Service
       Properties:
         TaskDefinition: "$TASK_DEFINITION"
+        LoadBalancerInfo:
+          ContainerName: "$CONTAINER_NAME"
+          ContainerPort: "8000"
         PlatformVersion: "1.4.0"
