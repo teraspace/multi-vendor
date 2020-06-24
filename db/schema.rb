@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_173059) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.datetime "deleted_at"
+    t.decimal "lon", precision: 10, scale: 6
+    t.decimal "lat", precision: 10, scale: 6
     t.index ["country_id"], name: "index_spree_addresses_on_country_id"
     t.index ["deleted_at"], name: "index_spree_addresses_on_deleted_at"
     t.index ["firstname"], name: "index_addresses_on_firstname"

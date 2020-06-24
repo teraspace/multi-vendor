@@ -33,7 +33,6 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -48,14 +47,18 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?  
   config.assets.debug = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  config.webpacker.check_yarn_integrity  = false
+  config.webpacker.check_yarn_integrity  = true
+
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
-  config.hosts << "multi-vendor.us-east-2.elasticbeanstalk.com"
+  # config.hosts << "spree.ccollart.tk"
+  config.web_console.whitelisted_ips = '172.24.0.1'
+  
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker

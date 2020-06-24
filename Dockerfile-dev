@@ -1,69 +1,73 @@
 FROM ruby:2.7.1
 
-# By default image is built using RAILS_ENV=development.
-# You may want to customize it:
-#
-#   --build-arg RAILS_ENV=production
-#
-# See https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables-build-arg
-#
 ARG RAILS_ENV=production
 ARG RAILS_MASTER_KEY
 
-ENV RAILS_ENV=${RAILS_ENV} \
-    APP_HOME=/home/app 
 
 ARG DATABASE
 ARG DATABASE_HOST
 ARG DATABASE_PASSWORD
 ARG DATABASE_USERNAME
 
-ARG ASSET_HOST
+ARG GOOGLE_MAPS_API_KEY
+
+ARG ASSET_HOST="ngnix"
+ARG REDIS_HOST="redis"
+
+ENV RAILS_ENV=${RAILS_ENV} 
+ENV APP_HOME=/home/app 
 
 ENV DATABASE=${DATABASE}
 ENV DATABASE_HOST=${DATABASE_HOST}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV DATABASE_USERNAME=${DATABASE_USERNAME}
 
+ENV GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+ENV ASSET_HOST=${ASSET_HOST}
+ENV REDIS_HOST=${REDIS_HOST}
+
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
 
 RUN apt-get update \
- && apt-get install -y nodejs build-essential libpq-dev yarn \
- vim patch ruby-dev zlib1g-dev liblzma-dev libmariadb-dev libpq-dev libsqlite3-dev
+ && apt-get install -y nodejs build-essential libpq-dev yarn libpq-dev
+#   patch ruby-dev zlib1g-dev liblzma-dev libmariadb-dev libpq-dev libsqlite3-dev 
 
-RUN groupadd -r app --gid=1000 \
- && useradd -r -g app -d /home/app --uid=1000 app 
+# RUN groupadd -r app --gid=1000 \
+#  && useradd -r -g app -d /home/app --uid=1000 app 
 
-#VOLUME [ "/opt/vendor/bundle" , "/home/data"]
+VOLUME ["/opt/vendor/bundle" , "/home/data/public" ]
 
 RUN mkdir -p /home/app /opt/vendor/bundle
-RUN su -c 'chown -R app:app /opt/vendor/bundle /home/app'
-COPY Gemfile $APP_HOME
+# RUN su -c 'chown -R app:app /opt/vendor/bundle /home/app'
+COPY . $APP_HOME
+# COPY Gemfile $APP_HOME
 
-USER app
-RUN gem install bundler -v 2.1.4
-
-## Install dependencies
-
+# install and configure bundler
+RUN gem install bundler --pre
 RUN bundle config set path '/opt/vendor/bundle'
+RUN bundle config --global jobs 7
+
 WORKDIR $APP_HOME
+## Install dependencies
 RUN bundle install 
 
 # Copy the main application.  only assets
-#COPY . $APP_HOME
-COPY docker-entrypoint.sh $APP_HOME
+# COPY docker-entrypoint.sh $APP_HOME
 # RUN chown -R app:app $APP_HOME  
 
 
 # Initialize application configuration & assets.
 #RUN bundle exec rake assets:precompile
 RUN yarn install --check-files
-#
 
 
-#RUN bundle exec rake assets:precompile ASSET_HOST=${ASSET_HOST}  RAILS_ENV=production
+
+# RUN  RAILS_ENV=production bundle exec rake assets:precompile 
+# RUN bundle exec RAILS_ENV=$RAILS_ENV rails db:migrate 
+# RUN bundle exec rails g duna_spree_sample:install
+# RUN rake assets:precompile   ##copiar a /home/app/public
 
 # Expose port 8080 to the Docker host, so we can access it
 # from the outside.
@@ -88,4 +92,4 @@ EXPOSE 8000
 # default.
 #CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8000"]
 ### cuando se levante el docker
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["bash","docker-entrypoint.sh"]

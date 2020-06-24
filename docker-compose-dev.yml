@@ -1,27 +1,70 @@
-
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:latest
     volumes:
-      - /tmp/db:/var/lib/postgresql/data
-    ports:
-      - "5432"
+      - db_volume:/var/lib/postgresql/data
+    # ports:
+      # - "5432"
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: spree-multi-vendor
-  web:
+  redis:
+        # build: 
+          # context: redis/.
+        image: redis:latest
+        volumes: 
+          - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+        command: redis-server --requirepass sOmE_sEcUrE_pAsS
+        # ports:
+          # - "6379"
+        environment:
+            - REDIS_REPLICATION_MODE=master
+        restart: always
+  nginx:
+        # build: 
+          # context: nginx/.
+        image: nginx:latest 
+        volumes: 
+          - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+          - public:/public
+        ports: 
+          - "8000:80"
+        depends_on: 
+          - puma
+        restart: always
+  puma:
     build: 
       context: .
       dockerfile: Dockerfile-dev
+      args:
+        # - GOOGLE_MAPS_API_KEY=AIzaSyCgCBMQn6nEeOjddAnX82XPSiWoumGx604
+        - REDIS_HOST=redis
+        - ASSET_HOST=nginx
     volumes:
-      - .:/home/app
-    ports:
-      - "8000:8000"
+      # - .:/home/app
+      - puma_bundle:/opt/vendor/bundle
+      - public:/home/app/public
+    # command: 
+      # - "bash -c bundle exec rails server -b 0.0.0.0 -p 8000"
+    # ports:
+      # - "3000"
     depends_on:
       - db
+      - redis
     environment:
       RAILS_ENV: development
+      RAILS_SERVE_STATIC_FILES:
+      # RAILS_LOG_TO_STDOUT: yes
+      
+      # ASSET_HOST: nginx
+      # REDIS_HOST: redis
+      
       DATABASE_PASSWORD: password
       DATABASE_HOST: db
       DATABASE_USERNAME: postgres
+
+volumes: 
+  db_volume:
+  puma_bundle:
+  public:    # ASSETS / STORAGE / PATHS? / local: root.join("storage")
