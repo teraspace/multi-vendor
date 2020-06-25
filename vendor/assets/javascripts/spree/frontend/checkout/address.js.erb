@@ -1,11 +1,12 @@
 var placeSearch, autocomplete, map, autocomplete_map, marker, infowindow, infowindowContent, input, place;
 
+
 var componentForm = {
     street_number: {name: 'short_name', html: ''},
     route: {name: 'long_name', html:''},
-    locality: {name: 'long_name', html: 'address_city'},
-    administrative_area_level_1: {name: 'long_name', html: 'address_state_id'},
-    country:  {name: 'long_name', html: 'address_country_id'},
+    locality: {name: 'long_name', html: 'order_bill_address_attributes_city'},
+    administrative_area_level_1: {name: 'long_name', html: 'order_bill_address_attributes_state_id'},
+    country:  {name: 'long_name', html: 'order_bill_address_attributes_country_id'},
     postal_code: {name: 'short_name', html: 'address_zipcode'}
   };
   function initMap() {
@@ -15,14 +16,14 @@ var componentForm = {
       zoom: 13
     });
     var _position
-    if(typeof(parseFloat($("#address_lon").val()))=="number" && typeof(parseFloat($("#address_lat").val()))=="number"){
-        _position = {lng: parseFloat($("#address_lon").val()), lat: parseFloat($("#address_lat").val())}
+    if(typeof(parseFloat($("#order_bill_address_attributes_lon").val()))=="number" && typeof(parseFloat($("#order_bill_address_attributes_lat").val()))=="number"){
+        _position = {lng: parseFloat($("#order_bill_address_attributes_lon").val()), lat: parseFloat($("#order_bill_address_attributes_lat").val())}
         map.setCenter(new google.maps.LatLng(_position.lat,_position.lng))
         var service = new google.maps.places.PlacesService(map);
         var request = {
             location: map.getCenter(),
             radius: '500',
-            query: $("#address_address1").val(),
+            query: $("#order_bill_address_attributes_address1").val(),
             fields: ['address_component', 'geometry', 'icon', 'name'],
           };
          
@@ -59,7 +60,7 @@ function geolocate() {
     // Create the autocomplete object, restricting the search predictions to
     // geographical location types.
     autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById('address_address1'));
+        document.getElementById('order_bill_address_attributes_address1'));
 
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the address components.
@@ -113,30 +114,30 @@ function geolocate() {
       if (componentForm[addressType]) {
         var val = place.address_components[i][componentForm[addressType].name];
         try {
-                
+                console.log(addressType)
             document.getElementById(componentForm[addressType].html).value = val;
-            if(componentForm[addressType].html=='address_state_id'){
+            if(componentForm[addressType].html=='order_bill_address_attributes_state_id'){
                 var _selected_department, _elm = null
-                $("#address_state_id option").filter(function() {
+                $("#order_bill_address_attributes_state_id option").filter(function() {
                     if (this.text.split(' ')[0] == val.split(' ')[0]){
                         _selected_department  = this
                         return true
                     }
                 }).attr('selected', true);
-                $("#address_state_id").val(_selected_department.value)
+                $("#order_bill_address_attributes_state_id").val(_selected_department.value)
               
            
 
             }
-            if(componentForm[addressType].html=='address_country_id'){
+            if(componentForm[addressType].html=='order_bill_address_attributes_country_id'){
                 var _selected_country, _elm = null
-                $("#address_country_id option").filter(function() {
+                $("#order_bill_address_attributes_country_id option").filter(function() {
                     if (this.text.split(' ')[0] == val.split(' ')[0]){
                         _selected_country  = this
                         return true
                     }
                 }).attr('selected', true);  
-                $("#address_country_id").val(_selected_country.value)
+                $("#order_bill_address_attributes_country_id").val(_selected_country.value)
 
             }              
         }catch(e){
@@ -165,8 +166,8 @@ function geolocate() {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
-    $('#address_lon').val(place.geometry.location.lng)
-    $('#address_lat').val(place.geometry.location.lat)
+    $('#order_bill_address_attributes_lon').val(place.geometry.location.lng)
+    $('#order_bill_address_attributes_lat').val(place.geometry.location.lat)
     var address = '';
     if (place.address_components) {
       address = [
@@ -183,16 +184,15 @@ function geolocate() {
   }
 (function() {
 
-    if(window.location.pathname=='/checkout/address') return;
-    $( "#address_address1" ).parent().parent().after( "<div style='height: 250px !important; margin-bottom:25px;' id='map'>Test</div>" );
+    if(window.location.pathname!='/checkout/address') return
+    console.log(window.location)
+    console.log('checkout address')
+    $( "#order_bill_address_attributes_address1" ).parent().parent().after( "<div style='height: 250px !important; margin-bottom:25px;' id='map'>Test</div>" );
     $( "#map" ).parent().parent().after( '    <div id="infowindow-content"><img src="" width="16" height="16" id="place-icon"><span id="place-name"  class="title"></span><br><span id="place-address"></span></div>' );
     //$( "#saddress1" ).parent().after(' <div> <input type="hidden" name="lon" id="address_lon" /> <input type="hidden" name="lat"  id="address_lat" /> </div> ')
 
-    $("#address_lat").hide()
-    $("#address_lon").hide()
-
-    console.log('edit address')
-    console.log(window.location)
+    $("#order_bill_address_attributes_lat").hide()
+    $("#order_bill_address_attributes_lon").hide()
     setTimeout(function(){
 
         initAutocomplete()
