@@ -183,7 +183,7 @@ function geolocate() {
   }
 (function() {
 
-    if(window.location.pathname=='/checkout/address') return;
+    if(window.location.pathname=='/checkout') return;
     $( "#address_address1" ).parent().parent().after( "<div style='height: 250px !important; margin-bottom:25px;' id='map'>Test</div>" );
     $( "#map" ).parent().parent().after( '    <div id="infowindow-content"><img src="" width="16" height="16" id="place-icon"><span id="place-name"  class="title"></span><br><span id="place-address"></span></div>' );
     //$( "#saddress1" ).parent().after(' <div> <input type="hidden" name="lon" id="address_lon" /> <input type="hidden" name="lat"  id="address_lat" /> </div> ')
